@@ -1,0 +1,11 @@
+id = "app.serverbox.diskusage"
+name = "Disk usage"
+description = "Where the space went, one directory at a time."
+license = "MIT"
+
+[[version]]
+version = "1.0.0"
+abi = 2
+path = "packages/app.serverbox.diskusage-1.0.0.sbp"
+sha256 = "18602ac4f75f8fbd1dee6a04b1f2581990a197487f150fb7ac68ac370f1088f8"
+size = 17595
