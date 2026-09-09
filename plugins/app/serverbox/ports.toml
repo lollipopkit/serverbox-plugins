@@ -6,6 +6,6 @@ license = "MIT"
 [[version]]
 version = "1.0.0"
 abi = 2
-path = "packages/app.serverbox.ports-1.0.0.sbp"
+url = "https://github.com/lollipopkit/flutter_server_box/releases/download/plugins/app.serverbox.ports-1.0.0.sbp"
 sha256 = "8a3823ef91110cd0710bee5d4dd303d301634d2098448ad4766370be93d290f2"
 size = 13975

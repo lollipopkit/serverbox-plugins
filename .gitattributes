@@ -1,4 +1,0 @@
-# The packages are the artifact this repository serves, so they are committed —
-# there is no release to attach them to. Marked binary so a diff says "changed"
-# instead of trying to show it.
-*.sbp binary

@@ -6,6 +6,6 @@ license = "MIT"
 [[version]]
 version = "1.0.0"
 abi = 2
-path = "packages/app.serverbox.scheduled-1.0.0.sbp"
+url = "https://github.com/lollipopkit/flutter_server_box/releases/download/plugins/app.serverbox.scheduled-1.0.0.sbp"
 sha256 = "f44096ce99a9804912a11f15d5920b069cbad7d2c16659546f55cf2a4ae694e3"
 size = 19122
