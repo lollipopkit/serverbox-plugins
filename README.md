@@ -61,23 +61,23 @@ The tooling is in the app's repository, in
 From a checkout of it, with this repository cloned beside it:
 
 ```sh
-# 1. build and pack every plugin
-for p in packages/plugins/*/; do (cd "$p" && bun run pack); done
-
-# 2. merge them into this repository's index, computing each digest
-bun run packages/plugin-tools/bin/repo.ts \
-  --base-url https://github.com/lollipopkit/serverbox-plugins/releases/download/packages \
-  --out ../serverbox-plugins/index.json
-
-# 3. upload the packages and the index
-gh release upload packages packages/plugins/*/dist/*.sbp ../serverbox-plugins/index.json \
-  --repo lollipopkit/serverbox-plugins --clobber
+scripts/publish-plugins.sh
 ```
 
-Then commit `index.json` here: the file's history is the record of what was
-published and when, which is the reason it is tracked as well as uploaded.
+That packs every plugin, merges them into this repository's `index.json`
+computing each digest, commits and pushes it, uploads the packages and the
+index, and then reads back what was served and checks it against the index.
 
-Two rules the generator enforces, both worth knowing before publishing by hand:
+**The order is the point, and it is why this is a script rather than three
+commands.** Publishing is three things — the packages, the index as a release
+asset, and the index in this repository's history — and the one worth designing
+against going missing is the third: the next run merges into an `index.json`
+that does not know about the version just published, and drops it. So the index
+is committed first and the assets go up after. Getting stuck between the two
+leaves an index naming a URL that 404s, which anyone can see and which running
+it again fixes.
+
+Two rules the generator enforces, both worth knowing:
 
 - **an existing index is merged into, never replaced.** The reason it lists
   several versions of a plugin is that one index serves apps of different ages,
