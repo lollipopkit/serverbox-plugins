@@ -4,6 +4,13 @@ description = "Where the space went, one directory at a time."
 license = "MIT"
 
 [[version]]
+version = "1.0.1"
+abi = 2
+url = "https://github.com/lollipopkit/flutter_server_box/releases/download/plugins/app.serverbox.diskusage-1.0.1.sbp"
+sha256 = "4e31010957a4d3f405d964c6c242fbba624f267f3093a37ad891e20d634288d9"
+size = 17643
+
+[[version]]
 version = "1.0.0"
 abi = 2
 url = "https://github.com/lollipopkit/flutter_server_box/releases/download/plugins/app.serverbox.diskusage-1.0.0.sbp"
