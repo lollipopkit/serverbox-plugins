@@ -1,0 +1,8 @@
+id = "serverbox.ember"
+name = "Ember"
+description = "One warm red, dark from the start, and nothing else configured."
+homepage = "https://github.com/lollipopkit/serverbox-plugins"
+license = "MIT"
+
+# Versions are appended by scripts/publish-themes.sh, which packs the folder
+# beside this file and records the digest of what it built.

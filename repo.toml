@@ -1,2 +1,5 @@
 schema = 1
-name = "ServerBox plugins"
+# The name a client shows beside what this repository offers. It no longer
+# offers plugins alone — `themes/` sits beside `plugins/` — so a label that
+# named one of the two was describing half of it.
+name = "ServerBox official"
