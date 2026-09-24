@@ -23,10 +23,8 @@ repo.toml                              schema, name
 plugins/app/serverbox/diskusage.toml   one file per plugin
 plugins/app/serverbox/ports.toml
 plugins/app/serverbox/scheduled.toml
-themes/serverbox.aurora.toml           one file per theme
-themes/serverbox.ember.toml
-themes/serverbox.aurora/manifest.toml  the theme itself, packed on publish
-themes/serverbox.ember/manifest.toml
+themes/serverbox.ember.toml            one file per theme
+themes/serverbox.ember/manifest.toml   the theme itself, packed on publish
 ```
 
 **Shaped after a Homebrew tap.** A tap is a git repository with one file per
@@ -79,9 +77,9 @@ A theme file sits at `themes/<id>.toml` and is the same shape as a plugin's:
 identity, then every version still on offer.
 
 ```toml
-id = "serverbox.aurora"
-name = "Aurora"
-description = "A purple palette, light and dark."
+id = "serverbox.ember"
+name = "Ember"
+description = "One warm red, dark from the start, and nothing else configured."
 homepage = "https://github.com/lollipopkit/serverbox-plugins"
 license = "MIT"
 
@@ -89,15 +87,15 @@ license = "MIT"
 version = "1.0.0"
 schema_min = 1
 schema_max = 1
-url = "https://github.com/lollipopkit/serverbox-plugins/releases/download/serverbox.aurora-1.0.0/serverbox.aurora-1.0.0.fsbt"
-sha256 = "5df8066215fa6ca4b5567fe8395a45141e511d82782e8ce6ae2703f45f7fdc86"
-size = 3661
+url = "https://github.com/lollipopkit/serverbox-plugins/releases/download/serverbox.ember-1.0.0/serverbox.ember-1.0.0.fsbt"
+sha256 = "22e7572dece3a5397a1203ebde85cd2dcbbaf4d7fc0899faabd69bbb1c9a6041"
+size = 497
 ```
 
-The id is the one the theme's own manifest carries, so `serverbox.aurora` is
-`themes/serverbox.aurora.toml` and its package says `id = "serverbox.aurora"` —
+The id is the one the theme's own manifest carries, so `serverbox.ember` is
+`themes/serverbox.ember.toml` and its package says `id = "serverbox.ember"` —
 one spelling, checked on both sides. The folder beside it,
-`themes/serverbox.aurora/`, is the theme itself, and it is not what a client
+`themes/serverbox.ember/`, is the theme itself, and it is not what a client
 reads; it is what `scripts/publish-themes.sh` packs.
 
 `schema_min` and `schema_max` are the manifest schema range the package carries,
@@ -107,9 +105,13 @@ older ones would make a theme vanish from an older app rather than offer it a
 version it can run. The app picks by version number, so the order in the file
 means nothing — this repository appends.
 
-`themes/serverbox.aurora` is the reference theme, listing every supported field
-at what it defaults to. `themes/serverbox.ember` is the minimal one: identity,
-schema and a seed.
+`themes/serverbox.ember` is the theme here, and the minimal shape: identity,
+schema and a seed, which is the whole of what a package must carry. A manifest
+that lists **every** supported field is in the app's documentation,
+[`docs/examples/aurora/manifest.toml`](https://github.com/lollipopkit/flutter_server_box/blob/main/docs/examples/aurora/manifest.toml),
+which is written to be read beside the format's own page rather than to be
+published. It is not in this tree, and the theme it describes is not offered
+here.
 
 ## How a client reads it
 
@@ -174,12 +176,12 @@ compiled first. So it needs `zip`, `shasum` and an authenticated `gh`, and no
 checkout of anything else:
 
 ```sh
-scripts/publish-themes.sh serverbox.aurora 1.0.1
+scripts/publish-themes.sh serverbox.ember 1.0.1
 ```
 
-That packs `themes/serverbox.aurora/` into `serverbox.aurora-1.0.1.fsbt`,
-creates the release tagged `serverbox.aurora-1.0.1` here, and appends the version
-to `themes/serverbox.aurora.toml` with the digest and size it computed.
+That packs `themes/serverbox.ember/` into `serverbox.ember-1.0.1.fsbt`,
+creates the release tagged `serverbox.ember-1.0.1` here, and appends the version
+to `themes/serverbox.ember.toml` with the digest and size it computed.
 
 **The releases go up before the files that name them.** A file pointing at an
 address that 404s is broken for everybody who reads it; a release nothing lists

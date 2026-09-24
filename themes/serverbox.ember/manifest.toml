@@ -1,7 +1,7 @@
 # The minimal theme: what a package must carry and nothing else. Every optional
 # field takes its default, and the palette is generated from the seed below.
-# `scripts/publish.sh serverbox.ember <version>` packs this folder into the
-# .fsbt and records the version in ../serverbox.ember.toml.
+# `scripts/publish-themes.sh serverbox.ember <version>` packs this folder into
+# the .fsbt and records the version in ../serverbox.ember.toml.
 format = 1
 id = "serverbox.ember"
 name = "Ember"
